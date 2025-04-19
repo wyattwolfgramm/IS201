@@ -1,0 +1,179 @@
+p{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#top{
+    text-decoration: underline;
+}
+
+.emphasizedText{
+    font-style: italic;
+    color:rgb(4, 4, 4);
+}
+
+body{
+    background-color: whitesmoke;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    border: 5px solid black;
+    margin: 20px;
+    padding: 10px;
+}
+
+.centered-list{
+    padding-left: 0;
+    list-style-position: outside;
+    margin: 0 auto;
+    display: table;
+    text-align: left;
+}
+
+.common{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.header{
+    background-color: black;
+    color: white;
+    height: 100px;
+    line-height: 100px;
+}
+.mainbody{
+    background-color: whitesmoke;
+
+}
+.footer{
+    position: fixed;
+    background-color: black;
+    color: white;
+    bottom: 0px;
+    left: 5px;
+    right: 5px;
+    height: 25px;
+    line-height: 25px;
+}
+img{
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+nav{
+   background-color: lightgray;
+   padding: 10px;
+   overflow: hidden;
+}
+nav a{
+    color:#333;
+    text-decoration: none;
+    padding: 20px;
+    font-weight: bold;
+
+}
+nav a:hover {
+    background-color: #ccc;
+
+}
+.bordered-section {
+    border-top: 8px double #4CAF50;
+    border-bottom: 8px double #4CAF50;
+    padding: 20px;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-image: url("../assets/img/home-bg2.jpg"); /* make sure path is correct */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: black; /* Helps text pop over image */
+}
+
+.bordered-section h2 {
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    color: #007BFF;
+  }
+
+  .game-box {
+    background-color: white;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  input[type="number"] {
+    padding: 10px;
+    font-size: 18px;
+    width: 80px;
+    margin-right: 10px;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 15px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .message {
+    font-size: 18px;
+    margin-top: 20px;
+    min-height: 40px;
+  }
+
+  .success {
+    color: green;
+    font-weight: bold;
+  }
+
+  .error {
+    color: red;
+    font-weight: bold;
+  }
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.tableau-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding-bottom: 56.25%; /* 16:9 ratio */
+    height: 0;
+    position: relative;
+}
+
+.tableau-embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <link rel="stylesheet" type="text/css" href="css/scratch.css">
+</head>
+<body>
+    <div class="common header">
+        <h1 id="top">Best Movies</h1>
+    </div>
+    <nav>
+        <a href="index.html"> HOME PAGE</a> <!--this is a comment--> 
+    </nav>
+    <!-- 2024 Section -->
+    <div class="bordered-section">
+        <h1>2024 Top Movies</h1>
+        <ul class="centered-list">
+            <li>
+                <h3>Top 3 Movies</h3>
+                <ol class="centered-list">
+                    <li class="emphasizedText">
+                        Superman<br>
+                        <img src="assets/img/superman.jpeg" alt="Superman" width="200">
+                    </li>
+                    <li class="emphasizedText">
+                        The Final Reckoning<br>
+                        <img src="assets/img/finalreckoning.jpeg" alt="The Final Reckoning" width="200">
+                    </li>
+                    <li class="emphasizedText">
+                        Jurassic World Rebirth<br>
+                        <img src="assets/img/jurassicworld.jpeg" alt="Jurassic World Rebirth" width="200">
+                    </li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+    <!-- 2025 Section -->
+    <div class="bordered-section">
+        <h1>2025 Top Movies</h1>
+        <ul class="centered-list">
+            <li>
+                <h3>Top 3 Movies</h3>
+                <ol class="centered-list">
+                    <li class="emphasizedText">
+                        Dune Part Two<br>
+                        <img src="assets/img/dune.jpeg" alt="Dune Part Two" width="200">
+                    </li>
+                    <li class="emphasizedText">
+                        Furiosa: Mad Max Saga<br>
+                        <img src="assets/img/madmax.jpeg" alt="Furiosa: Mad Max Saga" width="200">
+                    </li>
+                    <li class="emphasizedText">
+                        Deadpool & Wolverine<br>
+                        <img src="assets/img/deadpool.jpeg" alt="Deadpool & Wolverine" width="200">
+                    </li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+    <div class="common footer">2025 Wyatt Wolfgramm</div>
+    <br>
+    <p>Movies are powerful storytellers that shape culture, inspire empathy, and help us connect with others while exploring the human experience.</p>
+    <img src="assets/img/movies.jpeg" alt="Top Movies" width="300">
+    <br>
+    <a href="https://screenrant.com/movies/">Best Movies Of All Time</a>
+    <br><br><br>
+    <h1>Embedded YouTube Video</h1>
+    <div class="video-container">
+        <iframe 
+            src="https://www.youtube.com/embed/TcMBFSGVi1c"
+            title="Best Movies Trailer"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+    <br><br><br>
+    <!-- Responsive Tableau Embed -->
+    <div style="max-width: 100%; overflow-x: auto; margin: 0 auto;">
+        <h1>Interactive embedded Tableau graph</h1>
+        <div class='responsive-tableau' id='viz1744959871623' style='width: 100%; max-width: 1000px; margin: 0 auto;'>
+            <noscript>
+                <a href='#'>
+                    <img alt='IMDB_TOP10 ' src='https://public.tableau.com/static/images/IM/IMDb_TOP_10_Movies/IMDB_TOP10/1_rss.png' style='border: none' />
+                </a>
+            </noscript>
+            <object class='tableauViz' style='width: 100%; height: 800px;'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                <param name='embed_code_version' value='3' /> 
+                <param name='site_root' value='' />
+                <param name='name' value='IMDb_TOP_10_Movies/IMDB_TOP10' />
+                <param name='tabs' value='no' />
+                <param name='toolbar' value='yes' />
+                <param name='static_image' value='https://public.tableau.com/static/images/IM/IMDb_TOP_10_Movies/IMDB_TOP10/1.png' /> 
+                <param name='animate_transition' value='yes' />
+                <param name='display_static_image' value='yes' />
+                <param name='display_spinner' value='yes' />
+                <param name='display_overlay' value='yes' />
+                <param name='display_count' value='yes' />
+                <param name='language' value='en-US' />
+            </object>
+        </div>
+    </div>
+    <script type='text/javascript'>                    
+        var divElement = document.getElementById('viz1744959871623');                    
+        var vizElement = divElement.getElementsByTagName('object')[0];                    
+        vizElement.style.width = '100%';
+        vizElement.style.height = '700px';
+
+        var scriptElement = document.createElement('script');                    
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+    </script>
+    <br><br><br>
+        <br><br><br>
+        <h1>🎯 Number Guessing Game</h1>
+        <div class="game-box">
+          <p>I'm thinking of a number between 1 and 100.<br> Can you guess it?</p>
+          <input type="number" id="guessInput" min="1" max="100">
+          <button onclick="checkGuess()">Guess</button>
+          <div class="message" id="message"></div>
+          <br>
+          <button onclick="resetGame()">Reset Game</button>
+        </div>
+      
+        <script>
+          let randomNumber = Math.floor(Math.random() * 100) + 1;
+          let attempts = 0;
+      
+          function checkGuess() {
+            const userGuess = parseInt(document.getElementById('guessInput').value);
+            const messageEl = document.getElementById('message');
+            attempts++;
+      
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+              messageEl.textContent = "⛔ Please enter a number between 1 and 100.";
+              messageEl.className = "message error";
+            } else if (userGuess < randomNumber) {
+              messageEl.textContent = "🔻 Too low! Try a higher number.";
+              messageEl.className = "message error";
+            } else if (userGuess > randomNumber) {
+              messageEl.textContent = "🔺 Too high! Try a lower number.";
+              messageEl.className = "message error";
+            } else {
+              messageEl.textContent = `✅ You got it in ${attempts} attempts! The number was ${randomNumber}.`;
+              messageEl.className = "message success";
+            }
+          }
+      
+          function resetGame() {
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+            attempts = 0;
+            document.getElementById('guessInput').value = '';
+            document.getElementById('message').textContent = '';
+            document.getElementById('message').className = 'message';
+          }
+        </script>
+        <a href="#top">Go to the Top</a>
+</body>
+</html>
