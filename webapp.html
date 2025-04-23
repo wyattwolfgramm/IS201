@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🎯 Number Guessing Game</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #74ebd5, #9face6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .game-box {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    input[type="number"] {
+      width: 60%;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px 5px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .message {
+      margin: 10px 0;
+      font-weight: bold;
+    }
+
+    .message.error {
+      color: #ff4d4d;
+    }
+
+    .message.success {
+      color: #2ecc71;
+    }
+
+    .guess-history {
+      margin-top: 15px;
+      font-size: 14px;
+      text-align: left;
+    }
+
+    .back-top-left {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background-color: #ffffffcc;
+        color: #333;
+        padding: 8px 16px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
+    }
+
+    .back-top-left:hover {
+        background-color: #ddd;
+    }
+
+
+  </style>
+</head>
+<body>
+    <a href="scratch.html" class="back-top-left">← Back to Scratch Page</a>
+
+  <div class="game-box">
+    <h1>🎯 Number Guessing Game</h1>
+    <p>I'm thinking of a number between 1 and 100.<br>Can you guess it?</p>
+    <input type="number" id="guessInput" min="1" max="100" />
+    <button onclick="checkGuess()">Guess</button>
+    <div class="message" id="message"></div>
+    <div id="history" class="guess-history"></div>
+    <br>
+    <button onclick="resetGame()">Reset Game</button>
+  </div>
+
+  <script>
+    let randomNumber = Math.floor(Math.random() * 100) + 1;
+    let attempts = 0;
+    let guessHistory = [];
+
+    function checkGuess() {
+      const userGuess = parseInt(document.getElementById('guessInput').value);
+      const messageEl = document.getElementById('message');
+      const historyEl = document.getElementById('history');
+      attempts++;
+
+      if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+        messageEl.textContent = "⛔ Please enter a number between 1 and 100.";
+        messageEl.className = "message error";
+        return;
+      }
+
+      let feedback = '';
+      if (userGuess < randomNumber) {
+        feedback = '🔻 Too low!';
+        messageEl.className = "message error";
+      } else if (userGuess > randomNumber) {
+        feedback = '🔺 Too high!';
+        messageEl.className = "message error";
+      } else {
+        feedback = `✅ Correct! You got it in ${attempts} attempts.`;
+        messageEl.className = "message success";
+      }
+
+      guessHistory.push({ guess: userGuess, feedback });
+      updateHistory();
+      messageEl.textContent = feedback;
+    }
+
+    function updateHistory() {
+      const historyEl = document.getElementById('history');
+      historyEl.innerHTML = "<strong>Guesses:</strong><br>" + guessHistory.map(g => {
+        let color = g.feedback.includes('Correct') ? 'green' :
+                    g.feedback.includes('Too high') ? 'red' : 'orange';
+        return `<span style="color:${color}">${g.guess} - ${g.feedback}</span>`;
+      }).join('<br>');
+    }
+
+    function resetGame() {
+      randomNumber = Math.floor(Math.random() * 100) + 1;
+      attempts = 0;
+      guessHistory = [];
+      document.getElementById('guessInput').value = '';
+      document.getElementById('message').textContent = '';
+      document.getElementById('message').className = 'message';
+      document.getElementById('history').textContent = '';
+    }
+  </script>
+
+</body>
+</html>
