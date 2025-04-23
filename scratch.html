@@ -114,50 +114,8 @@
         vizElement.parentNode.insertBefore(scriptElement, vizElement);                
     </script>
     <br><br><br>
-        <br><br><br>
-        <h1>🎯 Number Guessing Game</h1>
-        <div class="game-box">
-          <p>I'm thinking of a number between 1 and 100.<br> Can you guess it?</p>
-          <input type="number" id="guessInput" min="1" max="100">
-          <button onclick="checkGuess()">Guess</button>
-          <div class="message" id="message"></div>
-          <br>
-          <button onclick="resetGame()">Reset Game</button>
-        </div>
-      
-        <script>
-          let randomNumber = Math.floor(Math.random() * 100) + 1;
-          let attempts = 0;
-      
-          function checkGuess() {
-            const userGuess = parseInt(document.getElementById('guessInput').value);
-            const messageEl = document.getElementById('message');
-            attempts++;
-      
-            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
-              messageEl.textContent = "⛔ Please enter a number between 1 and 100.";
-              messageEl.className = "message error";
-            } else if (userGuess < randomNumber) {
-              messageEl.textContent = "🔻 Too low! Try a higher number.";
-              messageEl.className = "message error";
-            } else if (userGuess > randomNumber) {
-              messageEl.textContent = "🔺 Too high! Try a lower number.";
-              messageEl.className = "message error";
-            } else {
-              messageEl.textContent = `✅ You got it in ${attempts} attempts! The number was ${randomNumber}.`;
-              messageEl.className = "message success";
-            }
-          }
-      
-          function resetGame() {
-            randomNumber = Math.floor(Math.random() * 100) + 1;
-            attempts = 0;
-            document.getElementById('guessInput').value = '';
-            document.getElementById('message').textContent = '';
-            document.getElementById('message').className = 'message';
-          }
-        </script>
-        <br><br><br>
-        <a href="#top">Go to the Top</a>
+    <a href="webapp.html">Play the Number Guessing Game 🎯</a>
+    <br><br><br>
+    <a href="#top">Go to the Top</a>
 </body>
 </html>
